@@ -1,3 +1,3 @@
 import pdfkit
 
-pdfkit.from_file('pdf.html', 'out.pdf')
+pdfkit.from_file('live_doc.html', 'live_out.pdf')

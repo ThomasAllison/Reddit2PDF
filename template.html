@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+</head>
+<body>
+    {% for comment in comments %}
+        <p class="quote">"{{ comment.comment }}"</p>
+        <p class="user">
+            <span class="userSpan">{{ comment.author }}</span>,
+            <span class="pointsTextSpan">{{ comment.score }} points</span>
+        </p>
+        <br><br><br>
+
+        <!-- LEVEL 1 -->
+        {% for sub in comment.sub_comments %}
+            <div class="commentDiv">
+                <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                <p class="subcommentText">{{ sub.comment }}</p>
+
+            <!-- LEVEL 2 -->
+            {% for sub in sub.sub_comments %}
+                <div class="commentDiv">
+                    <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                    <p class="subcommentText">{{ sub.comment }}</p>
+
+                    <!-- LEVEL 3 -->
+                    {% for sub in sub.sub_comments %}
+                        <div class="commentDiv">
+                            <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                            <p class="subcommentText">{{ sub.comment }}</p>
+
+                            <!-- LEVEL 4 -->
+                            {% for sub in sub.sub_comments %}
+                                <div class="commentDiv">
+                                    <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                                    <p class="subcommentText">{{ sub.comment }}</p>
+
+                                    <!-- LEVEL 5 -->
+                                    {% for sub in sub.sub_comments %}
+                                        <div class="commentDiv">
+                                            <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                                            <p class="subcommentText">{{ sub.comment }}</p>
+
+                                            <!-- LEVEL 6 -->
+                                            {% for sub in sub.sub_comments %}
+                                                <div class="commentDiv">
+                                                    <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                                                    <p class="subcommentText">{{ sub.comment }}</p>
+
+                                                    <!-- LEVEL 7 -->
+                                                    {% for sub in sub.sub_comments %}
+                                                        <div class="commentDiv">
+                                                            <p class="subcommentInfo">{{ sub.author }}, {{ sub.score }} points</p>
+                                                            <p class="subcommentText">{{ sub.comment }}</p>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% if comment.sub_comments|length > 0 %}
+            <div style="page-break-before:always"></div>
+        {% endif %}
+
+    {% endfor %}
+</body>
+</html>
