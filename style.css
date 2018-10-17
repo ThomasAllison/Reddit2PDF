@@ -1,0 +1,39 @@
+.quote {
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 4em;
+    font-family: 'Tangerine', serif;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.user {
+    text-align: right;
+    padding-right: 100px;
+}
+
+.userSpan {
+    color: #171717;
+    font-weight: bold;
+}
+
+.pointsTextSpan {
+    color: #3a3a3a;
+}
+
+.commentDiv {
+    padding-left: 75px;
+    margin-bottom: 25px;
+}
+
+.subcommentInfo {
+    margin-bottom: 0px;
+    color: #4a4946;
+    font-size: 0.65em;
+}
+
+.subcommentText {
+    margin-top: 2px;
+}
