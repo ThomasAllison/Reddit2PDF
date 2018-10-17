@@ -1,5 +1,6 @@
 import json
 from pprint import pprint
+import requests
 
 from bs4 import BeautifulSoup
 
@@ -95,18 +96,24 @@ def get_comments_in_list(comment_divs):
     return aggregated_comments
 
 
+def get_all_comments_from_url(url):
+    r = requests.get(url)
+    print(vars(r))
+    print(r.text)
+
+    # all_soup = BeautifulSoup(html_doc, 'html.parser')
+
+    # all_comment_divs = all_soup.find_all('div', {'class': 'comment'})
+
+    # return get_comments_in_list(all_comment_divs)
 
 
-# APPROACH 1
+if __name__ == '__main__':
+    comment_divs = soup.find_all('div', {'class': 'comment'})
 
-comment_divs = soup.find_all('div', {'class': 'comment'})
+    aggregated_comments = get_comments_in_list(comment_divs)
 
-aggregated_comments = get_comments_in_list(comment_divs)
+    pprint(aggregated_comments)
 
-pprint(aggregated_comments)
-
-with open('data.json', 'w') as outfile:
-    json.dump(aggregated_comments, outfile)
-
-
-
+    with open('data.json', 'w') as outfile:
+        json.dump(aggregated_comments, outfile)
